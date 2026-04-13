@@ -34,12 +34,24 @@
 </header>
 
 <!-- ABOUT -->
-<section id="about">
-    <div class="welcome-section">
-        <img src="images/welcome.png" alt="Church Members">
-    </div>
-</section>
+<section id="about" class="welcome-section">
 
+    <div class="welcome-box">
+        <img src="images/welcome.jpeg" alt="Church Members">
+
+        <div class="welcome-overlay">
+            <h2>Welcome Home</h2>
+            <p>
+                A family united in Christ. No matter where you come from,
+                you are always welcome here. Join us in worship, love and faith.
+            </p>
+        </div>
+        <div class="welcome-buttons">
+            <a href="#" class="btn secondary">Plan your Visit</a>
+        </div>
+    </div>
+
+</section>
 
 <!-- SERMON -->
 <section id="sermon" class="dark-section">
@@ -109,22 +121,47 @@
 <!-- CTA (VERY IMPORTANT) -->
 <section class="cta">
     <h2>Join our Church Family</h2>
-    <p>Join us this Sunday and experience God's presence</p>
+    <p>Be part of a loving community where faith grows, hope is renewed, and lives are transformed.</p>
+    <p>Experience God’s presence with us this Sunday.</p>
     <a href="#contact" class="btn">Plan Your Visit</a>
 </section>
 
-
-<!-- CONTACT -->
 <section id="contact">
-<div class="container center contact-box">
 
-    <h2>Visit Us</h2>
-    <p>Ribu Village, Assam</p>
-    <p>Phone: 8730882079</p>
+    <div class="visit-us">
 
-</div>
+        <h2>Visit Us</h2>
+
+        <p>
+            Ribu Baptist Church<br>
+            Ribu Village<br>
+            Karagaon, Karbi Anglong<br>
+            Assam - 782480<br>
+            Phone: 8730882079
+        </p>
+
+        <!-- MAP -->
+        <div class="map-container">
+            <iframe
+    src="https://www.google.com/maps?q=Ribu+Baptist+Church+Ribu+Village+Karbi+Anglong+Assam+782480&output=embed"
+    width="100%"
+    height="400"
+    style="border:0; border-radius: 10px;"
+    loading="lazy"
+    allowfullscreen>
+</iframe>
+        </div>
+
+        <!-- DIRECTIONS BUTTON -->
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Ribu+Baptist+Church+Karbi+Anglong"
+           target="_blank"
+           class="map-button">
+           Get Directions
+        </a>
+
+    </div>
+
 </section>
-
 <section class="live-service">
     <h2 class="center">Live Service</h2>
 
@@ -147,42 +184,91 @@
 </section>
 
 <section class="testimonials">
-    <h2 class="center">What People Say</h2>
 
+    <h2>Testimonies</h2>
+    <p>What God has done in the lives of our people</p>
+
+    <!-- VIDEO TESTIMONY -->
+    <div class="testimony-video">
+        <iframe 
+            src="YOUR_YOUTUBE_VIDEO_LINK"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- TESTIMONY CARDS -->
     <div class="testimonial-container">
 
         <div class="testimonial-card">
-            <p>"This church changed my life. I found peace and purpose."</p>
-            <h4>- John D.</h4>
+            <img src="images/person1.jpg" alt="Person 1">
+            <p>
+                “God changed my life through this church.
+                I found peace and purpose.”
+            </p>
+            <h4>- Person Name 1</h4>
         </div>
 
         <div class="testimonial-card">
-            <p>"A loving community where everyone feels like family."</p>
-            <h4>- Mary S.</h4>
+            <img src="images/person2.jpg" alt="Person 2">
+            <p>
+                “I experienced healing and strong faith.
+                This church is my family.”
+            </p>
+            <h4>- Person Name 2</h4>
         </div>
 
     </div>
-</section>
 
+</section>
+<!-- ================= DONATION SECTION ================= -->
 <section class="donation">
+
     <h2>Support the Ministry</h2>
     <p>Your giving helps us serve the community and spread God’s word.</p>
 
+    <!-- DONATE BUTTON -->
     <a href="upi://pay?pa=issacbelho1@okaxis&pn=Ribu%20Baptist%20Church&cu=INR"
-       class="btn">
-       Donate Now
+       class="btn"
+       onclick="setTimeout(showDonorPopup, 1500)">
+        Donate Now
     </a>
-    <p style="font-size:14px; opacity:0.7;">
-    Opens UPI apps like Google Pay, PhonePe, Paytm
-</p>
-<!--  QR CODE-->
-  <div class="qr-section">
-    <img src="images/qr.jpeg" alt="Scan to Donate">
-    <p>Scan & Pay</p>
-  </div>
-  <p class="donation-thanks">
-    Thank you for your support. Your generosity helps us continue God's work.</p>
+
+    <p style="font-size:14px; opacity:0.7; margin-top:10px;">
+        Opens Google Pay / PhonePe / Paytm
+    </p>
+
+    <!-- QR CODE -->
+    <div class="qr-section">
+        <img src="images/qr.jpeg" alt="Scan to Donate">
+        <p>Scan & Pay</p>
+    </div>
+
+    <!-- THANK YOU TEXT -->
+    <p class="donation-thanks">
+        Thank you for your support 🙏 Your generosity helps us continue God's work.
+    </p>
+
 </section>
+
+<!-- ================= DONOR POPUP ================= -->
+<div id="donorPopup" class="popup-box">
+
+    <div class="popup-content">
+
+        <h3>Thank You for Giving 🙏</h3>
+        <p>Please enter your name for church records & prayer</p>
+
+        <input type="text" id="donorName" placeholder="Your Name">
+
+        <button onclick="sendDonorName()" class="btn">
+            Submit
+        </button>
+
+    </div>
+
+</div>
+
 <section class="prayer">
     <h2>Prayer Request</h2>
     <p>Share your prayer request with us. We are here for you.</p>
@@ -205,9 +291,6 @@
 
     <script>
 // ✅ Mobile menu
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-}
 
 // ✅ Fade-in scroll animation
 const elements = document.querySelectorAll(".fade-in, .welcome-section");
@@ -221,6 +304,19 @@ function showOnScroll() {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const btn = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".navbar");
+
+    if (btn && nav) {
+        btn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    }
+
+});
 
 window.addEventListener("scroll", showOnScroll);
 window.addEventListener("load", showOnScroll);
@@ -258,32 +354,95 @@ function sendPrayer(e) {
 </script>
 <script>
 /* ⏳ SET YOUR SERVICE TIME */
-const serviceTime = new Date("2026-04-13T09:30:00"); // Sunday 10 AM
+/* =========================
+   LIVE + COUNTDOWN SYSTEM
+   ========================= */
 
+/* Set next service time */
+const serviceTime = new Date("2026-04-14T09:30:00");
+
+/* Elements */
 const badge = document.getElementById("liveBadge");
 const countdown = document.getElementById("countdownBox");
 
+/* MANUAL LIVE SWITCH (IMPORTANT) */
+// 👉 Change this to true when you are LIVE
+const isLive = false;
+
 function updateCountdown() {
+
+    /* 🔴 IF LIVE MODE IS ON (manual control) */
+    if (isLive) {
+        if (badge) badge.style.display = "block";
+        if (countdown) countdown.innerHTML = "🔴 We are LIVE now!";
+        return;
+    }
+
+    /* ⏳ COUNTDOWN MODE */
+    if (badge) badge.style.display = "none";
+
     const now = new Date();
     const diff = serviceTime - now;
 
     if (diff <= 0) {
-        // 🔴 LIVE MODE
-        badge.style.display = "block";
-        countdown.innerHTML = "🔴 We are LIVE now!";
+        countdown.innerHTML = "Next service coming soon";
         return;
     }
 
-    // ⏳ Countdown
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const mins = Math.floor((diff / (1000 * 60)) % 60);
     const secs = Math.floor((diff / 1000) % 60);
 
-    countdown.innerHTML = 
+    countdown.innerHTML =
         "Service starts in: " + hours + "h " + mins + "m " + secs + "s";
 }
 
+/* Run every second */
 setInterval(updateCountdown, 1000);
+
+/* Run immediately on load */
+updateCountdown();
+
+
+// =============================
+// SHOW POPUP AFTER DONATE CLICK
+// =============================
+function showDonorPopup() {
+    document.getElementById("donorPopup").style.display = "flex";
+}
+
+// =============================
+// SEND DONOR NAME TO PASTOR
+// =============================
+function sendDonorName() {
+
+    const name = document.getElementById("donorName").value;
+
+    if (!name) {
+        alert("Please enter your name 🙏");
+        return;
+    }
+
+    const message =
+        "🙏 NEW DONATION RECORD\n\n" +
+        "Donor Name: " + name + "\n" +
+        "Church: Ribu Baptist Church";
+
+    const pastorNumber = "918730882079";
+
+    // Send WhatsApp message to pastor
+    window.open(
+        `https://wa.me/${pastorNumber}?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+
+    // Close popup after sending
+    document.getElementById("donorPopup").style.display = "none";
+
+    // Clear input
+    document.getElementById("donorName").value = "";
+}
+
 </script>
 </body>
 </html>
