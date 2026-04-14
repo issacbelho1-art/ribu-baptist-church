@@ -1166,4 +1166,37 @@ body {
         border: none;
         display: block;
     }
+
+    /* 🔥 PERFECT SPACING */
+
+section {
+    padding: 50px 15px;   /* space inside sections */
+}
+
+/* space between cards */
+.welcome-box,
+.video,
+.live-video,
+.map-container {
+    margin-bottom: 20px;
+}
+
+/* center text nicely */
+.welcome-overlay,
+.video,
+.live-video,
+.map-container {
+    text-align: center;
+}
+
+/* fix headings spacing */
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
 }
