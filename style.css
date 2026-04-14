@@ -329,7 +329,7 @@ footer {
     }
     
     #menu {
-        display: none;
+        display: flex;
         flex-direction: column;
 
         position: absolute;
@@ -337,7 +337,11 @@ footer {
         right: 15px;
 
         width: 200px;
-        padding: 15px 20px;
+        padding: 15px;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: 0.3s ease;
 
         /* 🔥 MATCH NAVBAR STYLE */
         background: rgba(0,0,0,0.75);
@@ -350,11 +354,13 @@ footer {
 
         gap: 12px;
         z-index: 9999;
-        
     }
 
     #menu.active {
         display: flex;
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* MENU ITEMS */
