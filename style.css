@@ -25,39 +25,6 @@ body {
     color: white;
 }
 
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 15px 30px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    position: fixed;
-
-    transition: all 0.3s ease;
-}
-
-.navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s ease;
-    position: relative;
-}
-
 .navbar a:hover {
     color: gold;
 }
@@ -304,19 +271,42 @@ footer {
         transform: translateY(0);
     }
 }
+/*  NAvBAR  */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 
-/*  deskktop menu  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* DESKTOP MENU */
 #menu {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     list-style: none;
     align-items: center;
 }
+
 #menu a {
     color: white;
     text-decoration: none;
+    transition: 0.3s ease;
 }
-/* Hamburger icon */
+
+#menu a:hover {
+    color: gold;
+}
+
+/* HAMBURGER */
 .menu-toggle {
     display: none;
     font-size: 30px;
@@ -325,24 +315,21 @@ footer {
     z-index: 10000;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
 
-    /* ================= NAVBAR ================= */
     .menu-toggle {
         display: block;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        z-index: 9999;
     }
 
     #menu {
         display: none !important;
-        flex-direction: column;
 
         position: absolute;
         top: 60px;
         right: 15px;
+
+        flex-direction: column;
 
         width: 200px;
         padding: 15px;
@@ -352,7 +339,6 @@ footer {
 
         border-radius: 12px;
 
-        list-style: none;
         gap: 15px;
 
         z-index: 9999;
@@ -365,13 +351,6 @@ footer {
     #menu li {
         padding: 8px 0;
     }
-
-    #menu a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-    }
-
     /* ================= HERO ================= */
     .hero {
         min-height: 80vh;
