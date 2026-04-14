@@ -1169,15 +1169,7 @@ body {
 
     /* 🔥 PERFECT SPACING */
 
-/* ONLY apply to content sections, NOT hero */
-.welcome-section,
-.video,
-.live-video,
-.map-container,
-.gallery,
-.prayer,
-.donation,
-.testimonials {
+section {
     padding: 50px 15px;
 }
 
