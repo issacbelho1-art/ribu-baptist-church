@@ -425,23 +425,41 @@ header, .hero {
 
     /* ================= VIDEO ================= */
 
-    .video iframe {
-        width: 100%;
-        height: 320;
+    /* ================= VIDEO SECTION ================= */
+.video {
+    padding: 60px 15px;
+}
 
-    }
+.video iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+}
 
-    .video {
-        padding: 60px 15px;
-    }
+/* ================= LIVE SERVICE ================= */
+.live-video {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
 
-    .live-video {
-        width: 95;
-    }
+.live-video iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+}
 
-    .live-video iframe {
-        height: 320px;
-    }
+/* ================= MAP ================= */
+.map-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+}
 
     /* ================= GALLERY ================= */
 
