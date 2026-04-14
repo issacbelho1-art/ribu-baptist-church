@@ -407,18 +407,19 @@ footer {
 
     /* ================= WELCOME ================= */
     .welcome-box {
-        position: relative;
-        width: 100%;
-        border-radius: 12px;
-        overflow: hidden;
-    }
+    position: relative;
+    width: 100%;
+    height: 260px;   /* 🔥 FIXED HEIGHT */
+    overflow: hidden;
+    border-radius: 12px;
+}
 
-    .welcome-img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-    }
+.welcome-img {
+    width: 100%;
+    height: 100%;    /* 🔥 IMPORTANT */
+    object-fit: cover;  /* 🔥 IMPORTANT */
+    display: block;
+}
 
     .welcome-overlay {
         position: absolute;
