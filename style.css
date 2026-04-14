@@ -406,23 +406,6 @@ footer {
     }
 
     /* ================= WELCOME ================= */
-    .welcome-box {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.welcome-img {
-    width: 100%;
-    height: auto;   /* ✅ VERY IMPORTANT */
-    display: block;
-}
-    .welcome-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
 
     .welcome-overlay h2 {
         font-size: 22px;
@@ -1137,4 +1120,33 @@ body {
 .map-button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255,59,48,0.5);
+}
+
+@media (max-width: 768px) {
+
+    /* FORCE RESET */
+    .welcome-box,
+    .welcome-section,
+    .welcome {
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    /* FORCE IMAGE TO BE NORMAL */
+    .welcome-box img,
+    .welcome img,
+    .welcome-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: unset !important;
+        position: relative !important;
+    }
+
+    /* FIX OVERLAY */
+    .welcome-overlay {
+        position: relative !important;
+        background: rgba(0,0,0,0.7);
+        margin-top: -5px;
+    }
+
 }
