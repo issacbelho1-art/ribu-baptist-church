@@ -40,6 +40,7 @@ body {
     padding: 15px 40px;
     background: rgba(0,0,0,0.5);
     backdrop-filter: blur(12px);
+    position: fixed;
 
     transition: all 0.3s ease;
 }
@@ -339,8 +340,8 @@ footer {
         flex-direction: column;
 
         position: absolute;
-        top: 70px;
-        right: 10px;
+        top: 60px;
+        right: 20px;
 
         width: 200px;
         padding: 15px;
@@ -353,7 +354,7 @@ footer {
         list-style: none;
         gap: 15px;
 
-        z-index: 1500;
+        z-index: 2000;
     }
 
     #menu.active {
@@ -372,15 +373,19 @@ footer {
 
     /* ================= HERO ================= */
     .hero {
-        min-height: 80vh;
-        height: auto;
-        padding: 90px 15px 40px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+    min-height: 80vh;
+    height: auto;
+
+    padding: 100px 15px 40px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start; /* ✅ FIX */
+    align-items: center;
+}
 
     .hero-content {
         text-align: center;
