@@ -424,41 +424,78 @@ header, .hero {
     }
 
     /* ================= VIDEO ================= */
-
-    /* ================= VIDEO SECTION ================= */
-.video {
-    padding: 60px 15px;
+/* ================= CARD STYLE CONTAINER ================= */
+.video,
+.live-video,
+.map-container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
 }
 
-.video iframe {
+/* ================= IFRAME FIX ================= */
+.video iframe,
+.live-video iframe,
+.map-container iframe {
     width: 100%;
     height: 220px;
+    border: 0;
     border-radius: 12px;
+    display: block;
+}
+
+/* ================= VIDEO SECTION ================= */
+.video {
+    padding: 40px 15px;
 }
 
 /* ================= LIVE SERVICE ================= */
 .live-video {
-    width: 95%;
-    margin: 0 auto;
     position: relative;
 }
 
-.live-video iframe {
-    width: 100%;
-    height: 220px;
-    border-radius: 12px;
+/* ================= LIVE BADGE ================= */
+.live-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 0 12px red;
+    animation: pulseLive 1.2s infinite;
 }
 
-/* ================= MAP ================= */
-.map-container {
-    width: 95%;
-    margin: 0 auto;
+/* ================= LIVE ANIMATION ================= */
+@keyframes pulseLive {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.map-container iframe {
-    width: 100%;
-    height: 220px;
-    border-radius: 12px;
+/* ================= MOBILE SAFETY ================= */
+@media (max-width: 768px) {
+
+    .video,
+    .live-video,
+    .map-container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    .video iframe,
+    .live-video iframe,
+    .map-container iframe {
+        height: 200px;
+    }
 }
 
     /* ================= GALLERY ================= */
