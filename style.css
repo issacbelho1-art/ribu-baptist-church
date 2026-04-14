@@ -325,195 +325,6 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* ================= NAVBAR TOGGLE ================= */
-    .menu-toggle {
-        display: block;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    .menu-toggle:active {
-        transform: scale(0.9);
-    }
-
-    /* ================= MOBILE MENU ================= */
-    #menu {
-        display: none;
-        flex-direction: column;
-
-        position: absolute;
-        top: 70px;
-        right: 10px;
-
-        width: 200px;
-        padding: 15px;
-
-        background: rgba(0,0,0,0.92);
-        backdrop-filter: blur(10px);
-
-        border-radius: 12px;
-
-        list-style: none;
-        gap: 15px;
-    }
-
-    /* WHEN MENU IS OPEN */
-    #menu.active {
-        display: flex;
-    }
-
-    /* MENU ITEMS */
-    #menu li {
-        padding: 8px 0;
-    }
-
-    #menu a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-    }
-    .navbar ul {
-        position: absolute;
-        top: 70px;
-        right: 15px;
-        background: rgba(0,0,0,0.92);
-        backdrop-filter: blur(10px);
-
-        flex-direction: column;
-
-        width: 200px;
-        padding: 20px;
-        border-radius: 12px;
-        gap: 15px;
-
-        display: none;
-
-        /* smooth animation */
-        transform: translateY(-10px);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    .navbar ul.active {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .navbar ul li {
-        padding: 10px 0;
-    }
-
-    .navbar ul li a {
-        font-size: 16px;
-        padding: 8px;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero h1 {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 10px;
-}
-header, .hero {
-    overflow: hidden;
-}
-
-.hero {
-    min-height: 80vh;
-    height: auto;
-    padding: 80px 15px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.hero img {
-    width: 100%;
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-.hero-content {
-    margin: 10px 15px;
-    text-align: center;
-}
-
-    /* ================= LAYOUT ================= */
-
-    .split {
-        flex-direction: column;
-        padding: 40px;
-    }
-
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* ================= VIDEO ================= */
-/* ================= CARD STYLE CONTAINER ================= */
-.video,
-.live-video,
-.map-container {
-    width: 95%;
-    margin: 20px auto;
-    padding: 12px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-    overflow: hidden;
-}
-
-/* ================= IFRAME FIX ================= */
-.video iframe,
-.live-video iframe,
-.map-container iframe {
-    width: 100%;
-    height: 220px;
-    border: 0;
-    border-radius: 12px;
-    display: block;
-}
-
-/* ================= VIDEO SECTION ================= */
-.video {
-    padding: 40px 15px;
-}
-
-/* ================= LIVE SERVICE ================= */
-.live-video {
-    position: relative;
-}
-
-/* ================= LIVE BADGE ================= */
-.live-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: red;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    box-shadow: 0 0 12px red;
-    animation: pulseLive 1.2s infinite;
-}
-
-/* ================= LIVE ANIMATION ================= */
-@keyframes pulseLive {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.08); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-@media (max-width: 768px) {
-
     /* ================= NAVBAR ================= */
     .menu-toggle {
         display: block;
@@ -559,12 +370,16 @@ header, .hero {
         font-size: 16px;
     }
 
-    /* ================= HERO FIX (NO DESIGN CHANGE) ================= */
+    /* ================= HERO ================= */
     .hero {
-        height: auto;
         min-height: 80vh;
+        height: auto;
         padding: 90px 15px 40px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .hero-content {
@@ -577,11 +392,25 @@ header, .hero {
         line-height: 1.2;
     }
 
+    /* ================= HERO IMAGE FIX ================= */
+    .hero img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
     /* ================= WELCOME FIX ================= */
+    .welcome-section {
+        padding: 60px 15px;
+        overflow: hidden;
+    }
+
     .welcome-img {
         width: 100%;
         height: 220px;
         object-fit: cover;
+        display: block;
         border-radius: 12px;
     }
 
@@ -593,19 +422,19 @@ header, .hero {
         font-size: 13px;
     }
 
-    /* ================= VIDEO / MAP FIX ================= */
-    .video iframe,
-    .live-video iframe,
-    .map-container iframe {
-        height: 220px;
-    }
-
+    /* ================= VIDEO / MAP ================= */
     .video,
     .live-video,
     .map-container {
         width: 95%;
         margin: 15px auto;
         padding: 10px;
+    }
+
+    .video iframe,
+    .live-video iframe,
+    .map-container iframe {
+        height: 220px;
     }
 
     /* ================= GALLERY ================= */
