@@ -385,6 +385,9 @@ footer {
     line-height: 1.2;
     margin-bottom: 10px;
 }
+header, .hero {
+    overflow: hidden;
+}
 
 .hero-content {
     margin: 10px 15px;
