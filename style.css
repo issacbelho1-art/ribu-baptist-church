@@ -389,6 +389,13 @@ header, .hero {
     overflow: hidden;
 }
 
+.hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 15px 60px;
+    aligh-items: center;
+}
+
 .hero-content {
     margin: 10px 15px;
     text-align: center;
