@@ -1124,29 +1124,47 @@ body {
 
 @media (max-width: 768px) {
 
-    @media (max-width: 768px) {
-
-    /* Image behaves normally */
+    /* Image behaves normally (for non-fixed sections if needed) */
     .welcome-box img,
     .welcome-img {
         width: 100%;
-        height: auto;
         display: block;
     }
 
     /* Remove overlay overlap */
     .welcome-overlay {
-        position: static;   /* 🔥 KEY FIX */
+        position: static;
         width: 100%;
         background: rgba(0,0,0,0.7);
         padding: 15px;
     }
 
-    /* Remove any forced heights */
+    /* 🔥 SAME HEIGHT FOR ALL */
     .welcome-box,
-    .welcome-section {
-        height: auto;
+    .video,
+    .live-video,
+    .map-container {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        border-radius: 12px;
     }
 
-}
+    .welcome-box img,
+    .welcome-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .video iframe,
+    .live-video iframe,
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+
 }
