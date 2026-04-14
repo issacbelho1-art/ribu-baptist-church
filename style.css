@@ -319,6 +319,15 @@ footer {
 /* MOBILE */
 @media (max-width: 768px) {
 
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        z-index: 10001;
+    }
+
     #menu {
         position: fixed;
         top: 0;
