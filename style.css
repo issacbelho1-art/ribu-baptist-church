@@ -31,15 +31,15 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 9999;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 15px 40px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(12px);
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
     position: fixed;
 
     transition: all 0.3s ease;
@@ -308,7 +308,7 @@ footer {
 /*  deskktop menu  */
 #menu {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     list-style: none;
     align-items: center;
 }
@@ -322,6 +322,7 @@ footer {
     font-size: 30px;
     color: white;
     cursor: pointer;
+    z-index: 10000;
 }
 
 @media (max-width: 768px) {
@@ -332,16 +333,16 @@ footer {
         font-size: 30px;
         color: white;
         cursor: pointer;
-        z-index: 2000;
+        z-index: 9999;
     }
 
     #menu {
-        display: none;
+        display: none !important;
         flex-direction: column;
 
         position: absolute;
         top: 60px;
-        right: 20px;
+        right: 15px;
 
         width: 200px;
         padding: 15px;
@@ -354,11 +355,11 @@ footer {
         list-style: none;
         gap: 15px;
 
-        z-index: 2000;
+        z-index: 9999;
     }
 
     #menu.active {
-        display: flex;
+        display: flex !important;
     }
 
     #menu li {
@@ -373,19 +374,18 @@ footer {
 
     /* ================= HERO ================= */
     .hero {
-    min-height: 80vh;
-    height: auto;
+        min-height: 80vh;
+        height: auto;
+        padding: 100px 15px 40px;
 
-    padding: 100px 15px 40px;
+        display: flex;
+        flex-direction: column;
 
-    overflow: hidden;
+        justify-content: flex-start;
+        align-items: center;
 
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-start; /* ✅ FIX */
-    align-items: center;
-}
+        overflow: hidden;
+    }
 
     .hero-content {
         text-align: center;
@@ -397,26 +397,18 @@ footer {
         line-height: 1.2;
     }
 
-    /* ================= HERO IMAGE FIX ================= */
-    .hero img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
+    /* ================= WELCOME IMAGE FIX ================= */
+    .welcome-img {
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: cover !important;
+        display: block;
         border-radius: 12px;
     }
 
-    /* ================= WELCOME FIX ================= */
     .welcome-section {
         padding: 60px 15px;
         overflow: hidden;
-    }
-
-    .welcome-img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-        border-radius: 12px;
     }
 
     .welcome-overlay h2 {
@@ -471,7 +463,6 @@ footer {
         width: 150px;
     }
 }
-
     .split {
         flex-direction: column;
         padding: 40px;
