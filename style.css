@@ -324,7 +324,7 @@ footer {
     }
 
     #menu {
-        display: none !important;
+        display: none;
 
         position: absolute;
         top: 60px;
@@ -346,7 +346,7 @@ footer {
     }
 
     #menu.active {
-        display: flex !important;
+        display: flex;
     }
 
     #menu li {
