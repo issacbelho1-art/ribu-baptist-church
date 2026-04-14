@@ -1148,6 +1148,7 @@ body {
         height: 220px;
         overflow: hidden;
         border-radius: 12px;
+        aspect-ratio: 16/9;
     }
 
     .welcome-box img,
@@ -1156,7 +1157,6 @@ body {
         height: 100%;
         object-fit: cover;
         display: block;
-        aspect-ratio: 16/9;
     }
 
     .video iframe,
