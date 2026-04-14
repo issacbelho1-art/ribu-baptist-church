@@ -327,8 +327,8 @@ footer {
         display: none;
 
         position: absolute;
-        top: 60px;
-        right: 15px;
+        top: 55px;
+        right: 10px;
 
         flex-direction: column;
 
@@ -389,6 +389,10 @@ footer {
     .welcome-section {
         padding: 60px 15px;
         overflow: hidden;
+    }
+    .welcome-overlay {
+        bottom: 0;
+        padding: 25px 15px 15px;
     }
 
     .welcome-overlay h2 {
