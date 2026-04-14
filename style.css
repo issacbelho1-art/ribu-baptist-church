@@ -1124,29 +1124,29 @@ body {
 
 @media (max-width: 768px) {
 
-    /* FORCE RESET */
-    .welcome-box,
-    .welcome-section,
-    .welcome {
-        height: auto !important;
-        max-height: none !important;
-    }
+    @media (max-width: 768px) {
 
-    /* FORCE IMAGE TO BE NORMAL */
+    /* Image behaves normally */
     .welcome-box img,
-    .welcome img,
     .welcome-img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: unset !important;
-        position: relative !important;
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
-    /* FIX OVERLAY */
+    /* Remove overlay overlap */
     .welcome-overlay {
-        position: relative !important;
+        position: static;   /* 🔥 KEY FIX */
+        width: 100%;
         background: rgba(0,0,0,0.7);
-        margin-top: -5px;
+        padding: 15px;
     }
 
+    /* Remove any forced heights */
+    .welcome-box,
+    .welcome-section {
+        height: auto;
+    }
+
+}
 }
