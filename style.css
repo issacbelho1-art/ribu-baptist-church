@@ -319,39 +319,53 @@ footer {
 /* MOBILE */
 @media (max-width: 768px) {
 
-    .menu-toggle {
-        display: block;
-    }
-
     #menu {
-        display: none;
-
-        position: absolute;
-        top: 45px;
+        position: fixed;
+        top: 0;
         right: 0;
 
+        width: 100%;
+        height: 100vh;
+
+        background: #0b2a4a; /* similar to your example */
+
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        width: 160px;
-        padding: 12px;
+        gap: 25px;
 
-        background: rgba(0,0,0,0.92);
-        backdrop-filter: blur(10px);
+        list-style: none;
 
-        border-radius: 12px;
-
-        gap: 15px;
+        /* 🔥 HIDDEN STATE */
+        transform: translateX(100%);
+        transition: transform 0.4s ease;
 
         z-index: 9999;
     }
 
     #menu.active {
-        display: flex;
+        transform: translateX(0);
     }
 
-    #menu li {
-        padding: 8px 0;
+    #menu a {
+        color: gold;
+        font-size: 26px;
+        text-decoration: none;
     }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+    
         /* ================= HERO ================= */
     .hero {
         min-height: 80vh;
