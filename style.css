@@ -327,13 +327,13 @@ footer {
         display: none;
 
         position: absolute;
-        top: 55px;
-        right: 10px;
+        top: 45px;
+        right: 0;
 
         flex-direction: column;
 
-        width: 200px;
-        padding: 15px;
+        width: 160px;
+        padding: 12px;
 
         background: rgba(0,0,0,0.92);
         backdrop-filter: blur(10px);
