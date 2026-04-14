@@ -333,7 +333,7 @@ footer {
         flex-direction: column;
 
         position: absolute;
-        top: 65px;
+        top: 60px;
         right: 15px;
 
         width: 200px;
@@ -344,8 +344,8 @@ footer {
         transition: 0.3s ease;
 
         /* 🔥 MATCH NAVBAR STYLE */
-        background: rgba(0,0,0,0.75);
-        backdrop-filter: blur(12px);
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(10px);
 
         border-radius: 12px;
 
