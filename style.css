@@ -286,12 +286,14 @@ footer {
     padding: 15px 30px;
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
 }
 
 /* DESKTOP MENU */
 #menu {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     list-style: none;
     align-items: center;
 }
@@ -299,7 +301,6 @@ footer {
 #menu a {
     color: white;
     text-decoration: none;
-    transition: 0.3s ease;
 }
 
 #menu a:hover {
@@ -351,7 +352,7 @@ footer {
     #menu li {
         padding: 8px 0;
     }
-    /* ================= HERO ================= */
+        /* ================= HERO ================= */
     .hero {
         min-height: 80vh;
         height: auto;
