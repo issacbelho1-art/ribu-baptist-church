@@ -1124,31 +1124,23 @@ body {
 
 @media (max-width: 768px) {
 
-    /* 🔥 WELCOME IMAGE NORMAL (NO CUTTING TEXT) */
-    .welcome-box {
-        width: 100%;
-        height: auto;   /* ✅ IMPORTANT FIX */
-        overflow: hidden;
-        border-radius: 12px;
-    }
-
+    /* Image behaves normally (for non-fixed sections if needed) */
     .welcome-box img,
     .welcome-img {
         width: 100%;
-        height: auto;
         display: block;
     }
 
-    /* overlay stays below */
+    /* Remove overlay overlap */
     .welcome-overlay {
         position: static;
         width: 100%;
         background: rgba(0,0,0,0.7);
         padding: 15px;
-        text-align: center;
     }
 
-    /* 🔥 FIXED HEIGHT ONLY FOR VIDEO / MAP */
+    /* 🔥 SAME HEIGHT FOR ALL */
+    .welcome-box,
     .video,
     .live-video,
     .map-container {
@@ -1156,7 +1148,14 @@ body {
         height: 220px;
         overflow: hidden;
         border-radius: 12px;
-        margin-bottom: 20px;
+    }
+
+    .welcome-box img,
+    .welcome-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .video iframe,
@@ -1167,28 +1166,4 @@ body {
         border: none;
         display: block;
     }
-
-    /* 🔥 SAFE SPACING (NOT breaking layout) */
-    .welcome-section,
-    .video,
-    .live-video,
-    .map-container {
-        padding: 40px 15px;
-    }
-
-    /* spacing between items */
-    .welcome-box {
-        margin-bottom: 20px;
-    }
-
-    /* text spacing */
-    h2 {
-        margin-bottom: 10px;
-    }
-
-    p {
-        margin-bottom: 15px;
-        line-height: 1.5;
-    }
-
 }
