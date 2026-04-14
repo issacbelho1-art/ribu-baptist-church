@@ -421,20 +421,33 @@ footer {
 
     /* ================= WELCOME IMAGE FIX ================= */
     .welcome-img {
-        width: 100% !important;
-        height: 200px !important;
-        object-fit: cover !important;
+        width: 100%;
+        height: 1800px;
+        object-fit: cover;
         display: block;
         border-radius: 12px;
     }
 
     .welcome-section {
         padding: 60px 15px;
+        position: relative;
         overflow: hidden;
     }
     .welcome-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         bottom: 0;
-        padding: 25px 15px 15px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
+        text-align: center;
+        background: rgba(0,0,0,0.35);
     }
 
     .welcome-overlay h2 {
