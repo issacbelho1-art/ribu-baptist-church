@@ -1103,20 +1103,24 @@ body {
         display: block;
     }
  /* 🔥 FIXED VIDEO (LATEST SERMON) */
+/* 🔥 FINAL WORKING VIDEO FIX */
 .video {
     width: 100%;
     aspect-ratio: 16/9;
     margin: 20px auto;
     border-radius: 12px;
     overflow: hidden;
-    background: black; /* fallback so you SEE it */
+    position: relative;
 }
 
+/* 🔥 IMPORTANT CHANGE HERE */
 .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
-    display: block;
 }
 
     /* ================= GALLERY ================= */
