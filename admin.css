@@ -1,0 +1,67 @@
+/* ===== ADMIN DASHBOARD STYLES ===== */
+
+body {
+    background: #f5f6fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+.admin-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 15px;
+}
+
+.admin-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Cards */
+.request-card {
+    background: #fff;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.request-card:hover {
+    transform: translateY(-3px);
+}
+
+.request-card h3 {
+    margin: 0 0 5px;
+    color: #222;
+}
+
+.request-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Timestamp */
+.meta {
+    font-size: 12px;
+    color: gray;
+    margin-top: 8px;
+}
+
+/* Delete button (future use) */
+.delete-btn {
+    margin-top: 10px;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
