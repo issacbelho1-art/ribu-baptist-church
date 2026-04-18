@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Ribu Baptist Church</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero small-hero">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpeg">
+            <span>Ribu Baptist Church</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content center">
+        <h1>About Our Church</h1>
+        <p>Faith. Hope. Love in Christ</p>
+    </div>
+</header>
+
+<section class="about-section">
+
+<h2>Who we are</h2>
+
+<div class="accordion">
+
+    <div class="accordion-item">
+        <button class="accordion-header">The Ministry</button>
+        <div class="accordion-content">
+            <p>
+                Ribu Baptist Church is committed to sharing the Gospel of Jesus Christ 
+                with faithfulness and love. Our ministry focuses on teaching the Word, 
+                strengthening families, and serving the community with compassion.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+
+    <button class="accordion-header">Church Leadership</button>
+
+    <div class="accordion-content">
+
+        <!-- MR TAULANG PHOM -->
+        <div class="accordion-inner">
+
+            <img src="images/pastor.jpg" alt="Mr Taulang Phom">
+
+            <div>
+                <h4>Mr. Taulang Phom</h4>
+                <p>
+                    Mr. Taulang Phom faithfully leads the church with a strong commitment 
+                    to preaching the Word of God. His passion for ministry, prayer, and 
+                    spiritual growth helps guide the congregation in truth and unity.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- MRS TAULANG PHOM -->
+        <div class="accordion-inner">
+
+            <img src="images/pastor-wife.jpg" alt="Mrs Taulang Phom">
+
+            <div>
+                <h4>Mrs. Taulang Phom</h4>
+                <p>
+                    Mrs. Taulang Phom plays a vital role in supporting the ministry through 
+                    prayer, encouragement, and care for families and women. Her life reflects 
+                    grace, strength, and dedication to serving God and the church community.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="accordion-item">
+        <button class="accordion-header">We Believe</button>
+        <div class="accordion-content">
+            <p>
+                We believe in one God — Father, Son, and Holy Spirit. The Bible is the 
+                inspired Word of God, and salvation comes through faith in Jesus Christ. 
+                We are called to live in love, holiness, and obedience.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header">Ribu Baptist Church</button>
+        <div class="accordion-content">
+            <p>
+                We are a family united in Christ. Everyone is welcome here. Together we 
+                worship, grow in faith, and serve the community with love and purpose.
+            </p>
+        </div>
+    </div>
+
+<div class="accordion-item">
+
+    <button class="accordion-header">
+    Children & Youth Fellowship
+    <small>Learning • Faith • Creativity</small>
+</button>
+
+    <div class="accordion-content">
+
+        <div class="accordion-inner">
+
+            <img src="images/youth.jpg" alt="Children and Youth Fellowship">
+
+            <div>
+                <p>
+                    Our Children & Youth Fellowship is a space where young people 
+                    grow together in faith, learning, and creativity. Through our 
+                    activities, we nurture both spiritual and personal development.
+                </p>
+
+                <p>
+                    We run a special program where children and youth receive help 
+                    with their school studies while also learning Sunday school lessons 
+                    and biblical teachings. Alongside this, they participate in 
+                    choreography, dance, and singing gospel songs.
+                </p>
+
+                <p>
+                    This initiative is open not only to our church members but also 
+                    to children from other communities, creating a welcoming and 
+                    loving environment for all.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+</section>
+
+<footer>
+    <p>© 2026 Ribu Baptist Church</p>
+</footer>
+
+<script>
+const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header => {
+    header.addEventListener("click", () => {
+
+        // close others
+        headers.forEach(h => {
+            if (h !== header) {
+                h.classList.remove("active");
+                h.nextElementSibling.style.maxHeight = null;
+            }
+        });
+
+        // toggle current
+        header.classList.toggle("active");
+
+        const content = header.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
+</script>
+</body>
+</html>
