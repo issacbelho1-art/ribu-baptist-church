@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | Ribu Baptist Church</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header class="hero small-hero">
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpeg" alt="Logo">
+            <span>Ribu Baptist Church</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content center">
+        <h1>Admin Dashboard</h1>
+        <p>Join Requests Overview</p>
+    </div>
+
+    <!-- ✔ Logout button (handled by admin-auth.js) -->
+    <button id="logoutBtn">Logout</button>
+
+</header>
+
+<section class="admin-container">
+
+    <h2 class="admin-title">All Join Requests</h2>
+
+    <div id="requestsContainer">
+        <p>Loading data...</p>
+    </div>
+
+</section>
+
+<!-- FIREBASE + FIRESTORE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, deleteDoc, doc } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDB2eoRYSKzwvKFbajbxkcMQX-3dtJhchI",
+  authDomain: "ribu-baptist-church.firebaseapp.com",
+  projectId: "ribu-baptist-church",
+  storageBucket: "ribu-baptist-church.firebasestorage.app",
+  messagingSenderId: "562936044968",
+  appId: "1:562936044968:web:62b64153faecd49ee3d19d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const container = document.getElementById("requestsContainer");
+
+async function loadRequests() {
+
+    container.innerHTML = "";
+
+    try {
+        const snapshot = await getDocs(collection(db, "joinRequests"));
+
+        if (snapshot.empty) {
+            container.innerHTML = "<p>No submissions yet.</p>";
+            return;
+        }
+
+        snapshot.forEach((docItem) => {
+            const data = docItem.data();
+
+            let date = "N/A";
+            if (data.timestamp && data.timestamp.seconds) {
+                date = new Date(data.timestamp.seconds * 1000).toLocaleString();
+            }
+
+            const card = document.createElement("div");
+            card.classList.add("request-card");
+
+            card.innerHTML = `
+                <h3>${data.name}</h3>
+                <p><b>Phone:</b> ${data.phone}</p>
+                <p><b>Email:</b> ${data.email}</p>
+                <p><b>Ministry:</b> ${data.ministry}</p>
+                <p>${data.message}</p>
+                <div class="meta">Submitted: ${date}</div>
+
+                <button onclick="deleteRequest('${docItem.id}')">
+                    Delete
+                </button>
+            `;
+
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error(error);
+        container.innerHTML = "<p>Error loading data</p>";
+    }
+}
+
+loadRequests();
+
+// DELETE
+window.deleteRequest = async function(id) {
+    if (!confirm("Delete this request?")) return;
+
+    try {
+        await deleteDoc(doc(db, "joinRequests", id));
+        location.reload();
+    } catch (error) {
+        console.error(error);
+        alert("Error deleting");
+    }
+};
+</script>
+
+<!-- ✔ AUTH (PROTECTION + LOGOUT) -->
+<script type="module" src="admin-auth.js"></script>
+
+</body>
+</html>
