@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Ministry | Ribu Baptist Church</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="images/logo.jpeg">
+        <span>Ribu Baptist Church</span>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+    </ul>
+</nav>
+
+<!-- FORM SECTION -->
+<section class="join-form">
+
+    <h1>Join a Ministry</h1>
+    <p>Fill your details and we will contact you.</p>
+
+    <p id="successMsg" style="display:none; color: green; font-weight: bold;">
+        Thank you! We will contact you soon.
+    </p>
+
+    <form id="joinForm">
+
+        <input type="text" id="name" placeholder="Full Name" required>
+
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <input type="email" id="email" placeholder="Email">
+
+        <select id="ministry" required>
+            <option value="">Select Ministry</option>
+            <option value="Worship Team">Worship Team</option>
+            <option value="Youth Ministry">Youth Ministry</option>
+            <option value="Prayer Ministry">Prayer Ministry</option>
+            <option value="Outreach">Outreach</option>
+        </select>
+
+        <textarea id="message" placeholder="Why do you want to join?"></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+
+    </form>
+
+</section>
+
+<!-- MENU SCRIPT -->
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+<!-- FIREBASE SCRIPT -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDB2eoRYSKzwvKFbajbxkcMQX-3dtJhchI",
+  authDomain: "ribu-baptist-church.firebaseapp.com",
+  projectId: "ribu-baptist-church",
+  storageBucket: "ribu-baptist-church.firebasestorage.app",
+  messagingSenderId: "562936044968",
+  appId: "1:562936044968:web:62b64153faecd49ee3d19d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("joinForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        try {
+            await addDoc(collection(db, "joinRequests"), {
+                name: document.getElementById("name").value,
+                phone: document.getElementById("phone").value,
+                email: document.getElementById("email").value,
+                ministry: document.getElementById("ministry").value,
+                message: document.getElementById("message").value,
+                timestamp: new Date()
+            });
+
+            document.getElementById("successMsg").style.display = "block";
+            console.log("Success triggered");
+
+            document.getElementById("joinForm").reset();
+
+            setTimeout(() => {
+                window.location.href = "thank-you.html";
+            }, 4000);
+
+        } catch (error) {
+            alert("Error submitting form");
+            console.error(error);
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
