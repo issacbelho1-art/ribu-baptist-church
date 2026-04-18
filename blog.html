@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devotionals | Ribu Baptist Church</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero small-hero">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpeg">
+            <span>Ribu Baptist Church</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content center">
+        <h1>Daily Devotional</h1>
+    </div>
+</header>
+
+<section class="blog-section">
+
+    <div class="blog-card">
+    <p class="blog-date">April 2026</p>
+    <h2>Walking in Faith</h2>
+
+    <p class="blog-excerpt">
+        Faith is trusting God even when we cannot see the path ahead...
+    </p>
+
+    <a href="walking-in-faith.html" class="btn">Read More</a>
+</div>
+
+<div class="blog-card">
+    <p class="blog-date">April 2026</p>
+    <h2>Hope in Christ</h2>
+
+    <p class="blog-excerpt">
+        Our hope is not in the world, but in Jesus Christ...
+    </p>
+
+    <a href="hope-in-christ.html" class="btn">Read More</a>
+</div>
+</section>
+
+<footer>
+    <p>© 2026 Ribu Baptist Church</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
