@@ -9,50 +9,65 @@
 
 <body>
 
-<header>
-    <!-- reuse your navbar -->
+<header class="hero small-hero">
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpeg">
+            <span>Ribu Baptist Church</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+    </nav>
+
+    <!-- SIMPLE TITLE FOR PAGE -->
+    <div class="hero-content center">
+        <h1>Get Involved</h1>
+    </div>
+
 </header>
 
 <section class="involved-hero">
-    <h1>Get Involved</h1>
+    <h1>Serve With Us</h1>
     <p>Be part of what God is doing through our church family</p>
 </section>
 
 <section class="involved-grid">
 
     <div class="involved-card">
+    <img src="icons/worship.png">
+    <h2>Worship Team</h2>
+    <p>Serve through music, singing, and leading worship.</p>
+    <a href="join.html" class="btn">Join</a>
+</div>
 
-        <img src="icons/worship.png">
+<div class="involved-card">
+    <img src="icons/youth.png">
+    <h2>Youth Ministry</h2>
+    <p>Help guide and support the next generation.</p>
+    <a href="join.html" class="btn">Join</a>
+</div>
 
-        <h2>Worship Team</h2>
-        <p>Serve through music, singing, and leading worship.</p>
-        <a href="#" class="btn">Join</a>
-    </div>
+<div class="involved-card">
+    <img src="icons/prayer.png">
+    <h2>Prayer Ministry</h2>
+    <p>Stand in prayer for the church and community.</p>
+    <a href="join.html" class="btn">Join</a>
+</div>
 
-    <div class="involved-card">
-
-        <img src="icons/youth.png">
-        <h2>Youth Ministry</h2>
-        <p>Help guide and support the next generation.</p>
-        <a href="#" class="btn">Join</a>
-    </div>
-
-    <div class="involved-card">
-
-        <img src="icons/prayer.png">
-        <h2>Prayer Ministry</h2>
-        <p>Stand in prayer for the church and community.</p>
-        <a href="#" class="btn">Join</a>
-    </div>
-
-    <div class="involved-card">
-
-        <img src="icons/outreach.png">
-        <h2>Outreach</h2>
-        <p>Reach out and serve the community with love.</p>
-        <a href="#" class="btn">Join</a>
-    </div>
-
+<div class="involved-card">
+    <img src="icons/outreach.png">
+    <h2>Outreach</h2>
+    <p>Reach out and serve the community with love.</p>
+    <a href="join.html" class="btn">Join</a>
+</div>
 </section>
 
 <footer>
