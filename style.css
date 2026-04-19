@@ -1063,7 +1063,7 @@ body {
     }
     
     #menu {
-        display: flex;
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -1083,6 +1083,8 @@ body {
     }
 
     #menu.active {
+        display: flex;
+        flex-direction: column;
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
