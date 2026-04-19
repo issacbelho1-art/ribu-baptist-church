@@ -185,5 +185,15 @@ headers.forEach(header => {
     });
 });
 </script>
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+// ✔ FORCE MENU TO RESET ON PAGE LOAD
+window.addEventListener("load", () => {
+    document.getElementById("menu").classList.remove("active");
+});
+</script>
 </body>
 </html>
