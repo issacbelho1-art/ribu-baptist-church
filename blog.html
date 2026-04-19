@@ -61,6 +61,17 @@
 function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
 }
+
+// ✔ FORCE MENU TO RESET ON PAGE LOAD
+window.addEventListener("load", () => {
+    document.getElementById("menu").classList.remove("active");
+});
+</script>
+<script>document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("active");
+    });
+});
 </script>
 
 </body>
