@@ -1053,7 +1053,7 @@ body {
         overflow-x: hidden;
     }
 
-    /* ================= MENU ================= */
+    /* ================= NAVBAR ================= */
     .menu-toggle {
         display: block;
         font-size: 28px;
@@ -1061,7 +1061,7 @@ body {
         cursor: pointer;
         z-index: 10001;
     }
-    
+
     #menu {
         display: none;
         flex-direction: column;
@@ -1073,8 +1073,8 @@ body {
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px);
-        transition: 0.3s ease;
-        background: rgba(0,0,0,0.9);
+        transition: all 0.3s ease;
+        background: rgba(0,0,0,0.95);
         backdrop-filter: blur(10px);
         border-radius: 12px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.5);
@@ -1084,13 +1084,14 @@ body {
 
     #menu.active {
         display: flex;
-        flex-direction: column;
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
     }
 
-    #menu li { list-style: none; }
+    #menu li {
+        list-style: none;
+    }
 
     #menu a {
         color: white;
@@ -1112,10 +1113,9 @@ body {
         padding: 90px 15px 40px;
         text-align: center;
     }
+
     .hero-content {
-        margin: 0 auto;
-        margin-top: 120px;
-        text-align: center;
+        margin: 120px auto 0;
         padding: 0 20px;
     }
 
@@ -1133,7 +1133,7 @@ body {
     /* ================= WELCOME ================= */
     .welcome-box {
         width: 100%;
-        height: auto;   /* ✅ IMPORTANT */
+        height: auto;
         overflow: hidden;
         border-radius: 12px;
         margin-bottom: 20px;
@@ -1142,7 +1142,7 @@ body {
     .welcome-box img,
     .welcome-img {
         width: 100%;
-        height: auto;   /* ✅ NO CUTTING */
+        height: auto;
         display: block;
     }
 
@@ -1170,43 +1170,19 @@ body {
         padding: 40px 12px;
     }
 
-    /* ================= VIDEO / LIVE / MAP ================= */
-    .live-video,
-    .map-container {
+    /* ================= VIDEO ================= */
+    .video-container {
         width: 100%;
-        height: 220px;
+        max-width: 100%;
         margin: 20px auto;
-        overflow: hidden;
-        border-radius: 12px;
+        aspect-ratio: 16 / 9;
     }
 
-    .live-video iframe,
-    .map-container iframe {
+    .video-container iframe {
         width: 100%;
         height: 100%;
-        border: none;
-        display: block;
+        border-radius: 10px;
     }
- /* 🔥 FIXED VIDEO (LATEST SERMON) */
-/* 🔥 FINAL WORKING VIDEO FIX */
-.video {
-    width: 100%;
-    aspect-ratio: 16/9;
-    margin: 20px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* 🔥 IMPORTANT CHANGE HERE */
-.video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
     /* ================= GALLERY ================= */
     .gallery {
@@ -1223,6 +1199,20 @@ body {
         border-radius: 12px;
     }
 
+    /* ================= BLOG ================= */
+    .blog-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .blog-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
     /* ================= BUTTON ================= */
     .btn {
         padding: 10px 20px;
@@ -1230,7 +1220,7 @@ body {
         border-radius: 25px;
     }
 
-    /* ================= SPACING ================= */
+    /* ================= GENERAL ================= */
     section {
         padding: 40px 15px;
     }
@@ -1238,84 +1228,34 @@ body {
     img {
         display: block;
     }
-    
-    .split {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .split img {
-        width: 100%;
-    }
-    
+    .split,
     .accordion-inner {
         flex-direction: column;
         text-align: center;
     }
 
+    .split img,
     .accordion-inner img {
         width: 100%;
         height: auto;
     }
-    
-    .blog-section {
-        flex-direction: column;
-        padding: 20px;
-        align-items: center;
+
+    /* ================= DEVOTIONAL ================= */
+    .featured-devotional {
+        padding: 30px 10px;
+        text-align: center;
     }
 
-    .blog-card {
-        width: 100%;
-        max-width: 350px;
-    }
-    
-    .navbar ul {
-        display: none;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        padding: 15px;
+    .devotional-text h3 {
+        font-size: 18px;
     }
 
-    .navbar ul.active {
-        display: flex;
+    .devotional-text .verse {
+        font-size: 14px;
     }
 
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-    }
-    
-    .post-container {
-        padding: 20px;
-    }
-
-    .post-container h1 {
-        font-size: 24px;
-    }
-
-    .post-content p {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-    
-    .involved-hero h1 {
-        font-size: 32px;
-    }
-
-    .involved-hero p {
-        font-size: 15px;
-    }
-}
-/* =========================
-   MOBILE RESPONSIVE FIX
-   ========================= */
-
-@media (max-width: 768px) {
-
+    /* ================= PRAYER ================= */
     .prayer-section {
         padding: 40px 15px;
     }
@@ -1326,7 +1266,6 @@ body {
 
     .prayer-section p {
         font-size: 14px;
-        padding: 0 5px;
     }
 
     .prayer-section form {
@@ -1348,21 +1287,7 @@ body {
         font-size: 14px;
         padding: 10px;
     }
-
-    /* Featured Section */
-.featured-devotional {
-    text-align: center;
-    padding: 40px 15px;
-}
-
-/* Featured Section */
-.featured-devotional {
-    text-align: center;
-    padding: 40px 15px;
-}
-
-}
-}
+}}
 
 /* SMALL HERO */
 .small-hero {
