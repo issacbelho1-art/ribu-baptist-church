@@ -65,3 +65,23 @@ body {
 .delete-btn:hover {
     background: darkred;
 }
+
+.export-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.export-buttons button {
+    padding: 10px 15px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.export-buttons button:hover {
+    background: #555;
+}
