@@ -34,10 +34,13 @@
     <button id="logoutBtn">Logout</button>
 
 </header>
-
 <section class="admin-container">
 
     <h2 class="admin-title">All Join Requests</h2>
+
+    <button onclick="exportPDF('joinRequests')">Export Join Requests</button>
+<button onclick="exportPDF('prayers')">Export Prayers</button>
+<button onclick="exportPDF('donations')">Export Donations</button>
 
     <div id="requestsContainer">
         <p>Loading data...</p>
@@ -45,89 +48,12 @@
 
 </section>
 
-<!-- FIREBASE + FIRESTORE -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs, deleteDoc, doc } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<!-- PDF LIBRARIES FIRST -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDB2eoRYSKzwvKFbajbxkcMQX-3dtJhchI",
-  authDomain: "ribu-baptist-church.firebaseapp.com",
-  projectId: "ribu-baptist-church",
-  storageBucket: "ribu-baptist-church.firebasestorage.app",
-  messagingSenderId: "562936044968",
-  appId: "1:562936044968:web:62b64153faecd49ee3d19d"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const container = document.getElementById("requestsContainer");
-
-async function loadRequests() {
-
-    container.innerHTML = "";
-
-    try {
-        const snapshot = await getDocs(collection(db, "joinRequests"));
-
-        if (snapshot.empty) {
-            container.innerHTML = "<p>No submissions yet.</p>";
-            return;
-        }
-
-        snapshot.forEach((docItem) => {
-            const data = docItem.data();
-
-            let date = "N/A";
-            if (data.timestamp && data.timestamp.seconds) {
-                date = new Date(data.timestamp.seconds * 1000).toLocaleString();
-            }
-
-            const card = document.createElement("div");
-            card.classList.add("request-card");
-
-            card.innerHTML = `
-                <h3>${data.name}</h3>
-                <p><b>Phone:</b> ${data.phone}</p>
-                <p><b>Email:</b> ${data.email}</p>
-                <p><b>Ministry:</b> ${data.ministry}</p>
-                <p>${data.message}</p>
-                <div class="meta">Submitted: ${date}</div>
-
-                <button onclick="deleteRequest('${docItem.id}')">
-                    Delete
-                </button>
-            `;
-
-            container.appendChild(card);
-        });
-
-    } catch (error) {
-        console.error(error);
-        container.innerHTML = "<p>Error loading data</p>";
-    }
-}
-
-loadRequests();
-
-// DELETE
-window.deleteRequest = async function(id) {
-    if (!confirm("Delete this request?")) return;
-
-    try {
-        await deleteDoc(doc(db, "joinRequests", id));
-        location.reload();
-    } catch (error) {
-        console.error(error);
-        alert("Error deleting");
-    }
-};
-</script>
-
-<!-- ✔ AUTH (PROTECTION + LOGOUT) -->
-<script type="module" src="admin-auth.js"></script>
-
-</body>
+<!-- YOUR FILES -->
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/admin.js"></script>
+<script type="module" src="js/admin-auth.js"></script></body>
 </html>
