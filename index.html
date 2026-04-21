@@ -221,7 +221,6 @@
 
     </div>
 
-</section>
 <!-- ================= DONATION SECTION ================= -->
 <section class="donation">
 
@@ -229,14 +228,12 @@
     <p>Your giving helps us serve the community and spread God’s word.</p>
 
     <!-- DONATE BUTTON -->
-    <a href="upi://pay?pa=issacbelho1@okaxis&pn=Ribu%20Baptist%20Church&cu=INR"
-       class="btn"
-       onclick="setTimeout(showDonorPopup, 1500)">
+    <button class="btn" onclick="showDonorPopup()">
         Donate Now
-    </a>
+    </button>
 
     <p style="font-size:14px; opacity:0.7; margin-top:10px;">
-        Opens Google Pay / PhonePe / Paytm
+        Opens Google Pay / PhonePe / Paytm after submitting
     </p>
 
     <!-- QR CODE -->
@@ -245,42 +242,71 @@
         <p>Scan & Pay</p>
     </div>
 
-    <!-- THANK YOU TEXT -->
     <p class="donation-thanks">
         Thank you for your support 🙏 Your generosity helps us continue God's work.
     </p>
 
 </section>
 
-<!-- ================= DONOR POPUP ================= -->
-<div id="donorPopup" class="popup-box">
+<!-- ================= DONATION POPUP ================= -->
+<div id="donorPopup" class="popup-box" style="display:none;">
 
     <div class="popup-content">
 
         <h3>Thank You for Giving 🙏</h3>
-        <p>Please enter your name for church records & prayer</p>
+        <p>Your prayer request will be shared with the pastor.</p>
 
-        <input type="text" id="donorName" placeholder="Your Name">
+        <form id="donationForm">
 
-        <button onclick="sendDonorName()" class="btn">
-            Submit
-        </button>
+            <!-- NAME -->
+            <input 
+                type="text" 
+                id="donationName" 
+                placeholder="Your Name" 
+                required
+            >
+
+            <!-- PHONE -->
+            <input 
+                type="tel" 
+                id="phone" 
+                placeholder="Phone Number" 
+                required
+            >
+
+            <!-- PRAYER REQUEST -->
+            <textarea 
+                id="message" 
+                placeholder="Your Prayer Request (optional)"
+            ></textarea>
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn">
+                Continue to Pay
+            </button>
+
+        </form>
 
     </div>
 
 </div>
 
-<section class="prayer">
+<section class="prayer-section">
+
     <h2>Prayer Request</h2>
     <p>Share your prayer request with us. We are here for you.</p>
 
-    <form class="prayer-form" onsubmit="sendPrayer(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <textarea id="request" placeholder="Your Prayer Request" required></textarea>
-    <button type="submit">Submit</button>
-</form>
-</section>
+    <form id="prayerForm">
 
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <textarea id="request" placeholder="Your Prayer Request" required></textarea>
+
+        <button type="submit">Send Prayer Request</button>
+
+    </form>
+
+</section>
 <footer>
     <p>© 2026 Ribu Baptist Church</p>
 </footer>
@@ -289,178 +315,9 @@
     <span onclick="closeImage()">X</span>
     <img id="popup-img">
 </div>
-
-    <script>
-// ✅ Mobile menu
-
-// ✅ Fade-in scroll animation
-const elements = document.querySelectorAll(".fade-in, .welcome-section");
-
-function showOnScroll() {
-    elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-
-        if (top < window.innerHeight - 100) {
-            el.classList.add("show");
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const btn = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".navbar");
-
-    if (btn && nav) {
-        btn.addEventListener("click", () => {
-            nav.classList.toggle("active");
-        });
-    }
-
-});
-
-window.addEventListener("scroll", showOnScroll);
-window.addEventListener("load", showOnScroll);
-
-// ✅ Gallery popup
-const images = document.querySelectorAll(".gallery img");
-const popup = document.getElementById("popup");
-const popupImg = document.getElementById("popup-img");
-
-images.forEach(img => {
-    img.addEventListener("click", () => {
-        popup.style.display = "flex";
-        popupImg.src = img.src;
-    });
-});
-
-function closeImage() {
-    popup.style.display = "none";
-}
-
-function sendPrayer(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const request = document.getElementById("request").value;
-
-    const message = `Prayer Request from ${name}: ${request}`;
-
-    const phone = "918730882079"; // your number (no +)
-
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-}
-</script>
-<script>
-/* ⏳ SET YOUR SERVICE TIME */
-/* =========================
-   LIVE + COUNTDOWN SYSTEM
-   ========================= */
-
-/* Set next service time */
-const serviceTime = new Date("2026-04-14T09:30:00");
-
-/* Elements */
-const badge = document.getElementById("liveBadge");
-const countdown = document.getElementById("countdownBox");
-
-/* MANUAL LIVE SWITCH (IMPORTANT) */
-// 👉 Change this to true when you are LIVE
-const isLive = false;
-
-function updateCountdown() {
-
-    /* 🔴 IF LIVE MODE IS ON (manual control) */
-    if (isLive) {
-        if (badge) badge.style.display = "block";
-        if (countdown) countdown.innerHTML = "🔴 We are LIVE now!";
-        return;
-    }
-
-    /* ⏳ COUNTDOWN MODE */
-    if (badge) badge.style.display = "none";
-
-    const now = new Date();
-    const diff = serviceTime - now;
-
-    if (diff <= 0) {
-        countdown.innerHTML = "Next service coming soon";
-        return;
-    }
-
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor((diff / (1000 * 60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
-
-    countdown.innerHTML =
-        "Service starts in: " + hours + "h " + mins + "m " + secs + "s";
-}
-
-/* Run every second */
-setInterval(updateCountdown, 1000);
-
-/* Run immediately on load */
-updateCountdown();
-
-
-// =============================
-// SHOW POPUP AFTER DONATE CLICK
-// =============================
-function showDonorPopup() {
-    document.getElementById("donorPopup").style.display = "flex";
-}
-
-// =============================
-// SEND DONOR NAME TO PASTOR
-// =============================
-function sendDonorName() {
-
-    const name = document.getElementById("donorName").value;
-
-    if (!name) {
-        alert("Please enter your name 🙏");
-        return;
-    }
-
-    const message =
-        "🙏 NEW DONATION RECORD\n\n" +
-        "Donor Name: " + name + "\n" +
-        "Church: Ribu Baptist Church";
-
-    const pastorNumber = "918730882079";
-
-    // Send WhatsApp message to pastor
-    window.open(
-        `https://wa.me/${pastorNumber}?text=${encodeURIComponent(message)}`,
-        "_blank"
-    );
-
-    // Close popup after sending
-    document.getElementById("donorPopup").style.display = "none";
-
-    // Clear input
-    document.getElementById("donorName").value = "";
-}
-
-</script>
-<script>
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-}
-
-// ✔ FORCE MENU TO RESET ON PAGE LOAD
-window.addEventListener("load", () => {
-    document.getElementById("menu").classList.remove("active");
-});
-</script>
-</script>
-<script>document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.getElementById("menu").classList.remove("active");
-    });
-});
-</script>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/prayer.js"></script>
+<script type="module" src="js/donation.js"></script>
 </body>
 </html>
