@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | Ribu Baptist Church</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin-login.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>Admin Login</h2>
+
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <button id="loginBtn">Login</button>
+
+    <!-- error message -->
+    <p id="errorMsg" style="color:red;"></p>
+
+</div>
+
+<!-- Firebase -->
+<script type="module" src="js/firebase.js"></script>
+
+<!-- Admin Login Logic -->
+<script type="module" src="js/admin-login.js"></script>
+
+<!-- Optional Menu Script -->
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+window.addEventListener("load", () => {
+    document.getElementById("menu").classList.remove("active");
+});
+</script>
+
+</body>
+</html>
