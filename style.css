@@ -1310,6 +1310,59 @@ body {
         font-size: 15px;
     }
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .prayer-section {
+        padding: 40px 15px;
+    }
+
+    .prayer-section h2 {
+        font-size: 26px;
+    }
+
+    .prayer-section p {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+
+    .prayer-section form {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .prayer-section input,
+    .prayer-section textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .prayer-section textarea {
+        min-height: 100px;
+    }
+
+    .prayer-section button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Featured Section */
+.featured-devotional {
+    text-align: center;
+    padding: 40px 15px;
+}
+
+/* Featured Section */
+.featured-devotional {
+    text-align: center;
+    padding: 40px 15px;
+}
+
+}
+}
 
 /* SMALL HERO */
 .small-hero {
@@ -1619,4 +1672,190 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+/* =========================
+   PRAYER SECTION PREMIUM
+   ========================= */
+
+.prayer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* FORM CARD */
+.prayer-section form {
+    background: rgba(255, 255, 255, 0.15); /* slightly brighter */
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    max-width: 500px;
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* INPUT FIELDS */
+.prayer-section input,
+.prayer-section textarea {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    background: rgba(255,255,255,0.9); /* 🔥 FIX: solid light input */
+    color: black; /* 🔥 readable text */
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+/* PLACEHOLDER */
+.prayer-section input::placeholder,
+.prayer-section textarea::placeholder {
+    color: rgba(0,0,0,0.6); /* 🔥 readable placeholder */
+}
+
+/* FOCUS EFFECT */
+.prayer-section input:focus,
+.prayer-section textarea:focus {
+    background: white;
+    box-shadow: 0 0 8px rgba(255,215,0,0.5);
+}
+
+/* BUTTON */
+.prayer-section button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, gold, orange);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.prayer-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+}
+
+/* TEXT */
+.prayer-section h2 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.prayer-section p {
+    color: rgba(255,255,255,0.85);
+}
+
+.featured-devotional {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* ===== DEVOTIONAL VIDEO ===== */
+/* Section */
+.featured-devotional {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Video Card */
+.video-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    overflow: hidden;
+
+    /* Premium look */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Video */
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===== DEVOTIONAL TEXT ===== */
+.devotional-text {
+    max-width: 700px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.devotional-text h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #ffcc00;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+.devotional-text .verse {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* GROUP DEVOTIONAL TEXTS */
+.devotional-list {
+    max-width: 700px;
+    margin: 20px auto;
+}
+.audio-container {
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 15px;
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.audio-title {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.audio-container audio {
+    width: 100%;
+}
+.download-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.download-buttons .btn {
+    padding: 6px 12px;
+    background: #ffcc00;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
 }
