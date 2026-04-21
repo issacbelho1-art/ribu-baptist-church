@@ -12,47 +12,75 @@
 <header class="hero small-hero">
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.jpeg">
+            <img src="images/logo.jpeg" alt="Logo">
             <span>Ribu Baptist Church</span>
         </div>
+
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="blog.html" class="active">Devotional</a></li>
         </ul>
     </nav>
 
     <div class="hero-content center">
         <h1>Daily Devotional</h1>
+        <p>Grow in faith through God's word</p>
     </div>
 </header>
+<section class="featured-devotional">
 
-<section class="blog-section">
+    <h2>Today's Devotional</h2>
 
-    <div class="blog-card">
-    <p class="blog-date">April 2026</p>
-    <h2>Walking in Faith</h2>
+    <!-- VIDEO -->
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="audio-container">
 
-    <p class="blog-excerpt">
-        Faith is trusting God even when we cannot see the path ahead...
-    </p>
+    <p class="audio-note">Prefer listening? Play the audio below</p>
 
-    <a href="walking-in-faith.html" class="btn">Read More</a>
+    <p class="audio-title">Listen to Devotional</p>
+
+    <audio controls>
+        <source src="your-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</div>
+<div class="download-buttons">
+
+    <!-- AUDIO DOWNLOAD -->
+    <a href="audio.mp3" download class="btn">Download Audio</a>
+
+    <!-- VIDEO DOWNLOAD (ONLY if you have mp4 file) -->
+    <a href="video.mp4" download class="btn">Download Video</a>
+
 </div>
 
-<div class="blog-card">
-    <p class="blog-date">April 2026</p>
-    <h2>Hope in Christ</h2>
+    <!-- SHORT DEVOTIONAL LINKS -->
+    <div class="devotional-list">
 
-    <p class="blog-excerpt">
-        Our hope is not in the world, but in Jesus Christ...
-    </p>
+        <div class="devotional-text">
+            <h3>Walking in Faith</h3>
+            <p class="verse">2 Corinthians 5:7</p>
+            <a href="walking-in-faith.html" class="btn">Read Full Devotional</a>
+        </div>
 
-    <a href="hope-in-christ.html" class="btn">Read More</a>
-</div>
+        <div class="devotional-text">
+            <h3>Hope in Christ</h3>
+            <p class="verse">Romans 15:13</p>
+            <a href="hope-in-christ.html" class="btn">Read Full Devotional</a>
+        </div>
+
+    </div>
+
 </section>
-
 <footer>
     <p>© 2026 Ribu Baptist Church</p>
 </footer>
@@ -62,12 +90,13 @@ function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
 }
 
-// ✔ FORCE MENU TO RESET ON PAGE LOAD
+// Reset menu on load
 window.addEventListener("load", () => {
     document.getElementById("menu").classList.remove("active");
 });
-</script>
-<script>document.querySelectorAll("#menu a").forEach(link => {
+
+// Close menu on click
+document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", () => {
         document.getElementById("menu").classList.remove("active");
     });
